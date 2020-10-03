@@ -1,0 +1,14 @@
+[
+    {
+        "correo": "User1",
+        "password": "pwd12"
+    },
+    {
+        "correo": "User2",
+        "password": "pwd34"
+    },
+    {
+        "correo": "User3",
+        "password": "pwd97"
+    }
+]
