@@ -1,0 +1,14 @@
+    <h1>{{title}}</h1>
+    
+    <form action="/upload" method="POST" enctype="multipart/form-data"> 
+        <input type="file" name="file"> 
+        <button>
+            Guardar en servidor
+        </button>
+     </form>
+
+
+    {{>deployFiles}}
+    {{> uploads}}
+
+    {{!-- > sirve para buscarlo en partials --}}
