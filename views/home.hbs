@@ -1,3 +1,14 @@
+    <style>
+       table, th, tr{
+           border: 1px, solid black;
+       }
+    </style>
+
+    <form action="/salida" method="POST">
+        <button>salir</button>
+    </form>
+    
+    
     <h1>{{title}}</h1>
     
     <form action="/upload" method="POST" enctype="multipart/form-data"> 
@@ -7,8 +18,39 @@
         </button>
      </form>
 
-
+    <br>
     {{>deployFiles}}
+    <br>
     {{> uploads}}
+    <br>
+    {{> UserEdit}}
+
+    <div>
+        <table class="table" id="tb">
+            <th>
+                <td>
+                    Usuario
+                </td>
+                <td>
+                    Veces que se ha conectado
+                </td>
+                <td>
+                    Ultima Conexion
+                </td>
+            </th>
+            <tr>
+                <td></td>
+                <td>
+                    {{Usuario}}
+                </td>
+                <td>
+                    {{LoginCount}}
+                </td>
+                <td>
+                    {{lastLogin}}
+                </td>
+            </tr>
+        </table>
+    </div>
 
     {{!-- > sirve para buscarlo en partials --}}

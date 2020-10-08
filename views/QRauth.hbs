@@ -1,0 +1,14 @@
+<h1>QR Code Authentication</h1>
+<div class="container">
+    <div>
+        <img src={{QR_src}} alt="">
+    </div>
+    <div>
+        <form action="/GoogleAuth" method="POST">
+            <label for="Codigo">Ingrese su codigo Doble Factor</label>
+            <input type="text" name="token" id="token" placeholder="token de autenticacion" required> 
+            <br>
+            <button class="button">Autenticar</button>
+        </form>
+    </div>
+</div>

@@ -3,9 +3,12 @@ const fs = require('fs')
 const express = require('express')
 const hbs = require('express-handlebars')
 const path = require('path')
+const bodyparser = require('body-parser')
+
 const uploadRouter = require('../routes/uploads')
 const loginRouter = require('../routes/login')
-const bodyparser = require('body-parser')
+const qrAuthRouter = require('../routes/QRauth')
+const usrEditRouter = require('../routes/UserEdit')
 
 let scripts = [{script: '../views/login.js' }]
 
@@ -24,6 +27,8 @@ app.set('view engine', 'hbs');
 
 app.use(uploadRouter);
 app.use(loginRouter);
+app.use(qrAuthRouter);
+app.use(usrEditRouter);
 
 process.env.NODE_TLS_REJECT_UNAUTHORIZED = "0"
 

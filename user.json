@@ -1,14 +1,1 @@
-[
-    {
-        "correo": "User1",
-        "password": "pwd12"
-    },
-    {
-        "correo": "User2",
-        "password": "pwd34"
-    },
-    {
-        "correo": "User3",
-        "password": "pwd97"
-    }
-]
+[{"correo":"alphaUser","password":"1234","LoginTime":"2020/9/3 21:8:6","LoggedUser":true,"AuthProcess":false,"timesLogged":13},{"correo":"User2","password":"pwd34","LoginTime":"","LoggedUser":false,"AuthProcess":false,"timesLogged":0},{"correo":"User3","password":"pwd97","LoginTime":"","LoggedUser":false,"AuthProcess":false,"timesLogged":0}]
