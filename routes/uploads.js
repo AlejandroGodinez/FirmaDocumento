@@ -6,6 +6,7 @@ const fs = require('fs')
 const axios = require('axios')
 const crypto = require('crypto');
 const dialog = require('dialog')
+const crypt_decrypt = require('../fileEncyptionDecryption/encriptado')
 
 let uploadFileName = '';
 
@@ -114,5 +115,45 @@ router.post('/archivosSubidos',(req,res)=>{
             })
     });
     
+    let cryptFile = function(file){
+        let rutaArchivo = '../public/img/'+file
+        let filePath = path.join(__dirname, rutaArchivo);
+        let text =  fs.readFileSync(filePath, 'utf8')
+        let textToEncrypt = crypt_decrypt.encrypt(text)
+        //ahora se escribe el texto cifrado en el archivo
+        rutaArchivo = '../fileEncyptionDecryption/encryptedFile.txt'
+        filePath = path.join(__dirname, rutaArchivo);
+        fs.writeFileSync(filePath, textToEncrypt)
+    }
+    
+    let decryptFile = function(){
+        let rutaArchivo = '../fileEncyptionDecryption/encryptedFile.txt'
+        let filePath = path.join(__dirname, rutaArchivo);
+        let text = fs.readFileSync(filePath, 'utf8')
+        let cryptedText = crypt_decrypt.decrypt(text)
+        rutaArchivo = '../fileEncyptionDecryption/decryptedFile.txt'
+        filePath = path.join(__dirname, rutaArchivo);
+        fs.writeFileSync(filePath, cryptedText)
+    }
+    
+    router.route('/Crypt')
+        .post((req,res)=>{
+            res.redirect(303, '/archivoEncriptado');
+        })
+
+    router.get('/archivoEncriptado', (req,res)=>{
+        cryptFile(uploadFileName)
+        res.send(200);
+    })
+    
+    router.route('/Decrypt')
+        .post((req,res)=>{
+            res.redirect(303, '/archivoDesencriptado')
+        })
+    
+    router.get('/archivoDesencriptado', (req,res)=>{
+        decryptFile();
+        res.send(200);
+    })
 
 module.exports = router;

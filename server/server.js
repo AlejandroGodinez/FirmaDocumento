@@ -9,6 +9,7 @@ const uploadRouter = require('../routes/uploads')
 const loginRouter = require('../routes/login')
 const qrAuthRouter = require('../routes/QRauth')
 const usrEditRouter = require('../routes/UserEdit')
+const usrRegisterRouter = require('../routes/register')
 
 let scripts = [{script: '../views/login.js' }]
 
@@ -29,6 +30,7 @@ app.use(uploadRouter);
 app.use(loginRouter);
 app.use(qrAuthRouter);
 app.use(usrEditRouter);
+app.use(usrRegisterRouter)
 
 process.env.NODE_TLS_REJECT_UNAUTHORIZED = "0"
 
